@@ -1,0 +1,49 @@
+k-1
+Found these below commands missing and added using the proppercommands
+1.-bash: clear: command not found  —-----  yum install -y ncurses
+2.-bash: man: command not found  —-----  yum install -y man
+3.No manual entry for info—----------yum install -y info
+4. -bash: hostname: command not found—----yum install -y hostname
+5.-bash: ping: command not found—-------yum install -y iputils
+6. -bash: ifconfig: command not found—------yum install -y net-tools
+7. -bash: wget: command not found—-----yum install -y wget
+8.-bash: vim: command not found--------yum install -y vim
+9.-bash: crontab: command not found—---yum install - cronie
+10.-bash: sestatus: command not found—---yum install -y policycoreutils
+11.-bash: semanage: command not found—-----yum install -y policycoreutils-python-utils
+12for podman install .-----yum install -y container-tools
+13.Unit httpd.service could not be found.--------yum install -y httpd
+14.-bash: ssh: command not found—---yum install openssh-clients
+The bellow commands resolved by adding rockylinux repositories(baseos and appstream)in server
+145.bash: nmtui: command not found
+156.-bash: pinfo: command not found
+167.Unit tuned.service could not be found.
+178.No match for argument: nfs-utils
+18.Error: Unable to find a match: firewalld
+9.Error: Unable to find a match: firewalld
+–Added  baseos and appstream repos as below
+cd /etc/yum.repos.d
+ vim yum1.repo
+ [yum1]
+name=baseos
+baseurl=https://download.rockylinux.org/pub/rocky/9/BaseOS/x86_64/os/
+enabled=1
+gpgcheck=0
+~        	 
+ cd /etc/yum.repos.d
+ vim yum2.repo
+ [yum2]
+name=baseos
+baseurl=https://download.rockylinux.org/pub/rocky/9/AppStream/x86_64/os/
+enabled=1
+gpgcheck=0
+~          	 
+
+yum repolist all
+Then added ,
+145. sudo dnf install NetworkManager-tui
+156. yum install  -y pinfo
+167. yum install -y tuned
+178. yum install -y nfs-utils
+189. yum install -y firewalld
+
