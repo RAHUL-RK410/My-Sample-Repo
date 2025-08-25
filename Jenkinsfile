@@ -2,22 +2,23 @@ pipeline {
     agent any
 
     environment {
-        REGISTRY = "docker.io"               // or AWS ECR URL
-        IMAGE_NAME = "your-docker-username/myapp"
+        REGISTRY = "docker.io"                     // or AWS ECR URL
+        IMAGE_NAME = "rahulrk410/my-sample-app"    // change to your DockerHub repo
         IMAGE_TAG = "latest"
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/your-username/your-repo.git'
+                git branch: 'main', url: 'https://github.com/RAHUL-RK410/My-Sample-Repo.git'
             }
         }
 
         stage('Run Unit Tests') {
             steps {
                 sh 'echo "Running unit tests..."'
-                sh 'npm install && npm test'   // replace with mvn test, pytest, etc.
+                // 👉 Replace this with your project test command
+                sh 'echo "No tests configured yet"'
             }
         }
 
